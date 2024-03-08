@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
-displays its own PID
-echo $$
+#print this program pid
+
+pid=$BASHPID
+echo "$pid"
