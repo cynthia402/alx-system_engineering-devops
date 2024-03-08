@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#read user name, userid and path from etc/passwd
+#and print
+
+while IFS= read -r line;
+	do
+	if [ "$line" ]; then
+		echo "$line" | cut -d ":" -f 1,3,6 
+	fi
+done < /etc/passwd

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#displays:The content of the current directory after "-"
+
+for i in **; do
+	extracted=$(echo "$i" | cut -d "-" -f 2-)
+	if [[ -n "$extracted" ]]; then
+		echo "$extracted"
+	else
+		echo "$i"
+	fi
+ done
