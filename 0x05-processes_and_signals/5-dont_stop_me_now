@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#terminate program 4-to_infinity_and_beyond
+
+pidk=$(pgrep -f "4-to_infinity_and_beyond")
+kill -TERM "$pidk"

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#shows all runing processess
+# Get a detailed list of all processes, including those without TTYs
+
+ps -axuf

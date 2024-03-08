@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# handle different signal
+
+handle_sigterm()
+{
+	rm /var/run/myscript.pid
+	exit 0
+}
+
+
+pid=$BASHPID
+echo "$pid" > /var/run/myscript.pid
+export SHELLOPTS
+shopt -uo pipefail
+while true; do
+	echo "To infinity and beyond"
+		sleep 2
+	trap 'echo "Y U no love me?!"' SIGINT
+	trap 'echo "I hate the kill command" && handle_sigterm' SIGTERM
+	trap 'handle_sigterm' SIGQUIT
+done

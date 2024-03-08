@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#displays pid and name of program that contain line bash
+
+for pid in /proc/[0-9]*; do
+	[[ -f $pid/comm ]] || continue
+	name="$(cat "$pid/comm")"
+	p="$(echo "$pid" | tr -dc '[:digit:]')"
+	if [[ $name == *bash* ]]; then
+		echo "$p $name"
+		fi
+	done

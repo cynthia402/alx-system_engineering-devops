@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#ignore signal
+handl_signal()
+{
+	echo "I am invincible!!!"
+}
+trap handl_signal SIGTERM
+
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
