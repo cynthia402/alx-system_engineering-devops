@@ -1,3 +1,12 @@
 #!/usr/bin/env ruby
-# A regular expression that is matches only capital letters
-puts ARGV[0].scan(/[A-Z]/).join
+
+if ARGV.empty?
+    puts "missing one argument"
+else
+    arg = ARGV[0]
+    pattern = /[A-Z]+/
+    match_is = arg.scan(pattern)
+    if match_is
+        puts "#{match_is.join("")}"
+    end
+end

@@ -1,3 +1,12 @@
 #!/usr/bin/env ruby
-# A regular expression that is matches a string that starts with h ends with n and can have any single character in between
-puts ARGV[0].scan(/h.n/).join
+
+if ARGV.empty?
+    puts "need argument"
+else
+    arg = ARGV[0]
+    pattern = /(\Ah)(.)(n\Z)/
+    match_is = arg.match(pattern)
+    if match_is
+        puts "#{match_is}"
+    end
+end

@@ -1,3 +1,10 @@
 #!/usr/bin/env ruby
-# A regular expression that is matches a given pattern
-puts ARGV[0].scan(/hb?tn/).join
+
+if ARGV.empty?
+    puts "need argument"
+else
+    arg = ARGV[0]
+    if arg.chars.uniq.length == arg.length
+        puts "#{arg}"
+    end
+end
