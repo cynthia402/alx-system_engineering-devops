@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
-# Script that configures a new Ubuntu machine to respect above requirements
-
-sudo apt-get update
-sudo apt-get install -y nginx
-
+#install nginx and config to redirct_me
+sudo apt update
+sudo apt install -y nginx
+sudo service nginx start
+sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index.html
-string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.blog.ehoneahobed.com permanent;"
-sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+config_dirct_me="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Abel-alx-github permanent;"
+
+sudo sed -i "s/server_name _;/$config_dirct_me/" /etc/nginx/sites-enabled/default
+
+echo "https://github.com/Abel-alx-github" | sudo tee /var/www/html/redirect_me
+
 
 sudo service nginx restart
